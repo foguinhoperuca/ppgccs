@@ -1,0 +1,18 @@
+h1. PPGCCS
+
+Repository to my Master's Degree.
+
+h1. Project.
+
+Not defined yet!
+
+h1. Links.
+
+The oficial project site is:
+
+* http://redmine.ppgccs.awknet.org - project management;
+* http://ppgccs.net - oficial site - UFSCAR;
+* http://scm.ppgccs.awknet.org - source code/docs repository;
+* http://ppgccs.awknet.org - about me and about program;
+
+You can reach me at foguinho [dot] peruca [at] gmail [dot] com or jefferson [at] awknet [dot] org.
