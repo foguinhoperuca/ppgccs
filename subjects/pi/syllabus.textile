@@ -2,7 +2,7 @@ h1. Syllabus.
 
 h2. About.
 
-* Processamento de Imagens e Sinais (Digitais) - PPGCCS/DComp/UFSCAR - "Prof. Dr. Murillo Rodrigo Petrucelli Homem":http://www.dcomp.sor.ufscar.br/murillo
+* Processamento de Imagens e Sinais (Digitais) - PPGCCS/DComp/UFSCAR - "Prof. Dr. Murillo Rodrigo Petrucelli Homem":http://www.dcomp.sor.ufscar.br/murillo - mailto: murillo@ufscar.br
 *Ementa*: Introdução ao processamento de sinais unidimensionais e bidimensionais; noções de percepção visual; digitalização; realce de imagens; filtragem e restauração de imagens; reconstrução de imagens por projeções; codificação; análise de imagens.
 
 h2. Appointments.
