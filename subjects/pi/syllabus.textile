@@ -46,3 +46,11 @@ h2. Prerequisites.
 * Probabilidade;
 * Geometria Analítica & Algebra Linear;
 * Cálculo Diferencial e Integral;
+
+h2. Tools.
+
+* "Scilab":http://scilab.org
+* "Octave":http://www.gnu.org/software/octave
+* "GNUplot":http://www.gnuplot.info
+* C language ;D
+* Moodle;
