@@ -48,3 +48,40 @@ Pega um vetor MxN e converte em um vetor coluna no seguinte formato: M*N x 1 (em
 
 # utilizando o ~ significa que é uma variável aleatória.
 Ĩ(m,n) --> v.a. 
+
+Vamos começar por um sinal unidimensional que passaremos a denotar por um vetor aleatório:
+
+f = [f(1), f(2), ..., f(n)]
+
+Algumas definições: dada uma v.a. \tilde{X}, a média (ou valor esperado, ou expectância, ou esperança matemática) da variável \tilde{X} é definida como:
+
+m_\tilde{X} = E{\tilde{X}} = \integer{- \infinite to \infinite}{x * p_\tilde{X}(x) dx}, onde p_\tilde{X}(x) é a função de densidade de probabilidade de \tilde{X}. Ainda:
+\integer{- \infinite to \infinite}{p_\tilde{X}(x) dx} = 1
+
+A variância é um parâmetro que está relacionado com a variabilidade de p_tilde{X}x) e é definida por:
+
+{\sigma^2}_tilde{X} = E{\module{tilde{X} - m_tilde{X}}^2} --> medida de dispersão ao redor da média.
+
+Em casos mais práticos, onde temos um número limitado de ocorrências igualmente prováveis de um experimento a média é dada por: 
+
+M_{\widetilde{X}}= {1 /N} \sum_{i = 1}^{w} \widetilde{X}_i
+
+sa mesma situação, 
+
+\sigma^2_{\widetilde{X}} = {1 / N} \sum{i}\left | {\widetilde{X} - m_{\widetilde{X}}\right |^2}
+
+Vamos começar por um sinal unidimensional que passaremos a denotar por um vetor aleatório: 
+
+f = [\widetilde{f}(1), \widetilde{f}(2), ..., \widetilde{f}(n)]
+
+Denotemos por: M = [M(1), ..., M(n)] o vetor de médias para cada v.a. e por \sigma^2 a variância do pixel m, 1 \leq  m \leq N \to [\sigma²(1), ..., sigma²(n)]
+
+A matrix de covariância do sinla f pe dada por:
+
+R(m, m') = E \left \{ \left [ f\left ( m \right ) - m\left ( m \right ) \right ] * \left [ f\left ( m' \right ) - m\left ( m' \right ) \right ]^* \right \}
+* significa o complexo conjugado.
+
+Quando m = m', R(m,m) = \sigma²(m) na diagonal da matriz.
+
+Se \widetilde{f}(n) é independente de f(n'), R(m, m') = 0, m \neq m'
+
