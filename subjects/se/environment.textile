@@ -1,0 +1,99 @@
+Senhore(a)s,
+
+p. A respeito do que eu comentei sobre o ambiente de desenvolvimento e as práticas de engenharia de software, apesar de não termos definido qual será o tema do projeto em si, e talvez seja um pouco cedo para definirmos esse ambiente em detalhes, acho importante termos uma visão das possibilidades.
+
+p. Portanto segue a descrição das ferramentas e conceitos que eu julgo ideais para utilizarmos durante o desenvolvimento do projeto de IHC/Engenharia de Software (ES).
+
+p. Vale dizer que esse ambiente é baseado na minha experiência profissional de desenvolvimento e em pesquisas que fiz anteriormente. Porém, acho muito interessante que todos contribuam com a experiência própria para chegarmos em um ambiente que melhor e mais maduro. Também vale a pena submeter essa proposta de ambiente para consideração do prof. Alexandre, que acredito, pode contribuir bastante.
+
+p. Eu, particularmente utilizo o redmine e o github para gestão das minhas atividades no mestrado. Eu gostaria de sugerir para que vocês, caso queiram conhecer melhor essas ferramentas, que criem um cadastro nos seguintes sites e depois me enviem o usuário de vocês:
+* http://github.com/
+* http://www.hostedredmine.com/
+
+p. Para ver os projetos que eu uso, podem acessar os seguintes links:
+* http://redmine.ppgccs.awknet.org/ (redmine - gestão de projetos)
+* http://redmine.ppgccs.awknet.org/ (github - source code repository)
+
+h1. Infra para Gestão do Projeto e Desenvolvimento.
+
+h2. Gestão de Projetos - Redmine.
+
+* *Site oficial*: http://www.redmine.org/
+* *Custo*: gratuito
+* *Licença*: GPLv2
+* *Host gratuito para uso do projeto*: http://www.hostedredmine.com/
+* *Case*: utilizado na Prefeitura de Sorocaba como ferramenta de gestão de projetos, onde eu administro a ferramenta.
+* *Descrição*: o redmine é uma ferramenta de gestão de projetos flexível, escrita em ruby on rails e possui as funcionalidades de controle de tarefas/tickets, fórum, notícias, host de arquivos, acompanhamento de atividades, gerenciamento de versões, visão das tarefas/tickets no formato gant e calendário, wiki, integração com ferramentas de scm (subversion, git, hg entre outros). Outra fucionalidade muito importante dele é que ele é flexível e extensível por plugins que complementam as uncionalidades originais, como (exemplos que utilizamos em produção na Prefeitura de Sorocaba) o plugin de base de conhecimento entre outros.
+
+h2. Software Configuration Management (SCM)/Controle de Versão - Git.
+
+* *Site oficial*: http://git-scm.com/
+* *Custo*: gratuito
+* *Licença*: GPLv2
+* *Host gratuito para uso do projeto*: http://github.com (apenas projetos publicos) ou https://bitbucket.org/ (com repositório privado)
+* *Case*: O kernel do Linux é um dos maiores exemplos. A ferramenta foi desenvolvida, inicialmente, pelo próprio Linus Torvalds;
+* *Descrição*: Ferramenta de controle de versão bastante utilizada no mercado e com uma comunidade forte em volta. Ela é bem flexível e possui workflows (maneiras de trabalhar) muito simples de usar.
+
+h2. Continuos Integration (CI) - Jenkins.
+
+* *Site oficial*: http://jenkins-ci.org/
+* *Custo*: gratuito
+* *Licença*: MIT License
+* *Host gratuito para uso do projeto*: http://www.cloudbees.com/
+* *Case*: utilizado na Prefeitura de Sorocaba como ferramenta de integração contínua, onde eu administro a ferramenta.
+* *Descrição*: Ferramenta de integração contínua que é focada nos processos de build e teste de forma contínua e monitoramento de jobs executados externamente. Ela ajuda na implantação da filosofia de entrega contínua de funcionalidades.
+
+h2. Software Lifecycle Management - Apache Maven.
+
+* *Site oficial*: http://maven.apache.org/
+* *Custo*: gratuito
+* *Licença*: Apache License
+* *Host gratuito para uso do projeto*: ferramenta local (não precisa de hospedagem - ver archiva)
+* *Case*: utilizado na Prefeitura de Sorocaba como ferramenta de build e desenvolvimento de projetos
+* *Descrição*: Ferramenta utilizada para gestão do ciclo de vida do desenvolvimento do software (build, gestão de dependencias, etc)
+
+h2. Artifact Management - Apache Archiva.
+
+* *Site oficial*: http://archiva.apache.org/
+* *Custo*: gratuito
+* *Licença*: Apache License
+* *Host gratuito para uso do projeto*: em caso de o projeto final ser open source podemos hospedar no central (repositório global de aterfatos utilizados pelo maven). Caso contrário será necessário ou levantar um host próprio ou armazenar o build em uma tag no git;
+* *Case*: utilizado na Prefeitura de Sorocaba para gerenciar os aterfatos (build - binários gerados que serão implantados na produção), onde eu administro a ferramenta.
+* *Descrição*: Ferramenta utilizada para gestão do ciclo de vida do desenvolvimento do software (build, gestão de dependencias, etc)
+
+h2. Host para Deploy da App - openshift.redhat.org.
+
+* *Site oficial*: http://openshift.redhat.org
+* *Custo*: gratuito
+* *Licença*: -
+* *Host gratuito para uso do projeto*: http://openshift.redhat.org
+* *Case*: Diaspora e Code for America;
+* *Descrição*: PaaS (Plataforma como serviço) gratuíto apoiado pela redhat. Alternativamente podemos utilizar o heroku (http://heroku.com) como plataforma para o deploy das apps.
+
+h1. Tecnologia/Plataforma.
+
+Em termos de tecnologia especificamente, eu tenho em mente o uso:
+
+h2. Server-side.
+
+* java
+** [vraptor | spring]
+** hibernate
+
+* Ruby
+** Ruby on rails
+
+* Javascript
+** Nodejs
+
+h2. Client-side.
+
+Javascript
+* backbone
+* bootstrap
+* jquery
+
+h2. Database.
+
+* Postgresql
+* Mysql
