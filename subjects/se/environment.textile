@@ -97,3 +97,36 @@ h2. Database.
 
 * Postgresql
 * Mysql
+
+h1. Ideias.
+
+h2. Estante Digital.
+
+* inspiração: https://www.teses.usp.br/estante/site/
+
+h2. Pedidos de Restaurante.
+
+h2. Filtro de conteúdo para feed de notícias do facebook.
+
+h2. Buscador de conteúdo no feed de notícias do facebook.
+
+h2. Esquema para facilitar a leitura do cpf nos caixas eletrônicos, chip, cartão etc.
+
+h2. Fazer um acompanhamento do onibus (localização, intinerário, se está cheio, tempo estimado pra chegar).
+
+h2. Controle de bicicletas públicas.
+
+h2. Histórico médico portable.
+
+h2. Sistema para gestão de remédios e consultas, com atendimento pelas farmácias.
+
+h2. Interpretar desenho feito à mão (rabisquedo).
+
+h2. Site de recomendação musical baseado nas músicas na sua biblioteca.
+
+h2. “Experimentador” de óculos mobile.
+
+h2. Idéias do Alexandre.
+
+h3. “Balada hot” - um foursquare para uma balada mas que da nota pra balada.
+
