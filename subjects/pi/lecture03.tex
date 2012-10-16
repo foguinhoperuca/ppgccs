@@ -1,0 +1,62 @@
+%% Copyright (C)  2012 Jefferson Campos
+%% Permission is granted to copy, distribute and/or modify this document
+%% under the terms of the GNU Free Documentation License, Version 1.3
+%% or any later version published by the Free Software Foundation;
+%% with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+%% A copy of the license is included in the section entitled "GNU
+%% Free Documentation License".
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+\title{Aula 03.}
+\author{Jefferson Campos}
+\date{October 2012}
+
+\begin{document}
+
+% \maketitle
+
+\section{Breve Revisão de Sistemas Lineares e Operadores Lineares.}
+
+A aplicação de um operador O em uma função S(t) será denotado por:
+
+$$ O[S(t)] $$
+
+Mais ainda, dizemos que o operador linear uma vez que:
+
+$ O[\alpha \cdot x(t) + \beta y(t)] = \alpha \cdot O[x(t)] + \beta \cdot O[y(t)] $ $ \forall \alpha,\beta$ e funções contínuas $x = x(t), y= y(t) $
+
+Particularmente, uma classe de operadores lineares muito importante é definida como:
+
+$$ z(t) = \int_{-\infty}^{+\infty }{x(t')h(t_1t') dt'} $$
+
+onde h é chamada de resposta impulsional.
+
+Na verdade, se o sistema for linear, ele pode ser completamente caracterizado pela sua resposta a função impulso. A função impulso é dada por
+
+\begin{equation*}
+|\delta|= 
+\begin{cases}
+1, & \text{ se } t= 0 \\ 
+0, & \text{ caso contrário }
+\end{cases}
+\end{equation*}
+
+Vamos chamar $x(t) = \delta(t - t_0) $ e escrever:
+
+$$ z(t) = \int_{-\infty}^{+\infty }{\delta(t' - t_0) \cdot h(t_1t') dt'} = h(t_1t_0) $$
+
+Para operações invariantes ao deslocamentom o operador linear fica da seguinte maneira:
+
+$$ z(t) = \int_{-\infty}^{+\infty }{x(t') h(t - t') dt'} $$
+
+\end{document}
