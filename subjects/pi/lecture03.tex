@@ -13,9 +13,9 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[pdftex]{graphicx}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-
 
 \title{Aula 03.}
 \author{Jefferson Campos}
@@ -57,6 +57,31 @@ $$ z(t) = \int_{-\infty}^{+\infty }{\delta(t' - t_0) \cdot h(t_1t') dt'} = h(t_1
 
 Para operações invariantes ao deslocamentom o operador linear fica da seguinte maneira:
 
-$$ z(t) = \int_{-\infty}^{+\infty }{x(t') h(t - t') dt'} $$
+$$ z(t) = \int_{-\infty}^{+\infty }{x(t') h(t - t') dt'} $$ (integral de convolução)
+
+Denotamos a convolução de x(t) e h(t) por $ z(t) = x(t) \ast h(t) $
+
+O processo de convolução também pode ser definido para sequências discretas: Se denotamos $ x_i = x[i] \cdot \Delta t $ e $ y_i = y[i \cdot \Delta t] $, a convolução entre $ x_i $ e $ h_i $ pode ser escrita como:
+
+$$ y_i = \Delta t \cdot \sum_{k=-\infty}^{+\infty}{x_k \cdot h_i \cdot k} $$ (aproximação discreta da integral de convolução)
+
+Assuma que temos uma função contínua, $ s = s(t) $, definida para um intervalo $ T_1 \leq  t \leq T_2 $. Mais ainda, assuma, que s(t) seja \textit{periódica}. A função s(t) pode ser expressa na seguinte forma:
+
+$$ s(t) = \sum_{k=-\infty}^{+\infty}{z_k \cdot e^{jkwt}}, j = \sqrt{-1}, w_0 = 2 \pi f_0 , T = T_2 - T_1 $$ e os $ z_k $ são coeficientes discretos chamados de \textit{série de Fourier}.
+
+Casa $ z_k $ pode ser obtido por:
+
+$$ z_k = \frac{1}{T} \int_{T_1}^{T_2}{s(t)e^{-jkw_0T}} $$
+
+De fato, $e^{jkw_0t} = \cos{(kw_0t)} + j\sin{(kw_0t)} $
+
+Quando consideramos um sinal contínuo $ S = s(t) $, definido por $ t \epsilon \left( -\infty, +\infty \right) $, isto é, não necessariamente periódico, s(t) possui uma outra representação dada por:
+
+$$ s(t) = \frac{1}{2 \pi} \int_{-\infty}^{+\infty}{S(\omega)e^{jwt} d\omega} $$, onde $ S(\omega) $ é chamada \textit{Transformada de Fourier Contínua}.
+
+A Transformada de Fourier Contínua, $ S(\omega) $, onde $ \omega \epsilon \mathbb{C} $, é dada por:
+
+$$ S(\omega) = \int_{-\infty}^{+\infty}{s(t)e^{+jwt} dt} $$
+
 
 \end{document}
