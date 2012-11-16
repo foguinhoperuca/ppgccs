@@ -1,0 +1,4 @@
+h1. Dúvidas AM.
+
+# O que significa hiperplano?
+# Beam search, grey search

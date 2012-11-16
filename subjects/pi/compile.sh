@@ -1,4 +1,4 @@
-# Copyright (C) 2008,2009,2012 Jefferson Campos - foguinho [dot] peruca [at] gmail [dot] com
+# Copyright (C) 2012 Jefferson Campos - foguinho [dot] peruca [at] gmail [dot] com
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,10 +20,11 @@
 show_usage()
 {
     echo ""
-    echo "firewall Copyright (C) 2008,2009,2012 Jefferson Campos - foguinho [dot] peruca [at] gmail [dot] com"
+    echo "PI - class notes - Copyright (C) 2012 Jefferson Campos - foguinho [dot] peruca [at] gmail [dot] com"
     echo "This program comes with ABSOLUTELY NO WARRANTY;"
     echo "This is free software, and you are welcome to redistribute it under certain conditions;"
-    echo "usage: ./firewall.sh [start|stop|restart|tomcat|status]"
+    echo "usage: ./compile.sh lecture <lecture_number>"
+    echo "usage: ./compile.sh subject"
     echo ""
 }
 
@@ -35,16 +36,41 @@ lecture(){
 
 subject()
 {
-    pdflatex pi.tex
-    pdflatex pi.tex
-    bibtex seminar_ecology.aux
-    pdflatex seminar_ecology.tex
+    SUBJECT=$1
+    if [ -z $SUBJECT ]
+    then
+	SUBJECT=pi.tex
+    fi
+
+    echo "1 is $1"
+
+    echo "SUBJECT is $SUBJECT"
+#    pdflatex $SUBJECT
+
+    if [ $2 == "bib" ]
+    then
+	echo "Compile bibliograph"
+#	compile_bibliograph $SUBJECT
+    fi
+
+    echo "2 is $2"
 }
+
+compile_bibligraph()
+{
+    SUBJECT=$1
+    if [ -e $SUBJECT ]
+    then
+	SUBJECT=pi.tex
+    fi
+
+    bibtex $SUBJECT
+    pdflatex $SUBJECT
+}
+
 
 case $1 in 
     "lecture") lecture $2;;
-    "subject") subject;;
+    "subject") subject $2 $3;;
     *) show_usage;;
 esac
-
-
