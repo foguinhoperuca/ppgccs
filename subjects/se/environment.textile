@@ -93,6 +93,11 @@ Javascript
 * bootstrap
 * jquery
 
+h2. Mobile.
+
+* Jquery mobile;
+* "mobify":http://www.mobify.com/blog/introducing-mobify-js/
+
 h2. Database.
 
 * Postgresql
