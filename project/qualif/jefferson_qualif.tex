@@ -1,0 +1,123 @@
+\documentclass[12pt]{article}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{mcmacros}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{eepic}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{pgfgantt, tikz}
+
+\newcommand{\mysection}[1]{\section*{#1}} 
+\newcommand{\mysubsection}[1]{\subsection*{#1}} 
+\newcommand{\cqd}{\begin{flushright} \small $\square$ \end{flushright}}
+\newtheorem{thm}{Teorema}
+\newtheorem{cor}{Corolário}
+\newtheorem{lem}{Lema}
+\newtheorem{prp}{Proposição}
+\newtheorem{cnj}{Conjetura}
+
+\newcommand{\theolike}[2]{\textbf{#1} \textit{#2}}
+
+\newcommand{\f}{$\blacksquare$}    
+
+\author{\textbf{Candidato:} Jefferson Luiz Oliveira de Campos\\
+        \textbf{Orientadora:} Profa. Dra. Cândida Nunes da Silva}
+\title{\textbf{Coloração de Vertices}}
+\date{\today}
+
+\doublespacing
+
+\begin{document}
+
+% Insere título do texto em página não numerada. 
+\maketitle
+\thispagestyle{empty}
+
+% Numera páginas preliminares com numerais romanos.
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+
+% Numera as páginas do texto com numerais arábicos normalmente.
+\newpage
+\pagenumbering{arabic}
+
+%O projeto de pesquisa deve ser apresentado de maneira clara e resumida, ocupando, no máximo, 20 páginas datilografadas em espaço duplo. Deve compreender: resumo com no máximo 20 linhas, introdução e justificativa, com síntese da bibliografia fundamental; objetivos; plano de trabalho e cronograma de sua execução; material e métodos; forma de análise dos resultados. A responsabilidade pelo projeto é  do orientador, mas o aluno deve estar apto a discutir.
+
+\section{Resumo}
+
+Resumo...
+
+\section{Introdução}
+
+Intro...
+
+
+\section{Objetivos}
+\label{sec:objetivos}
+
+Objetivos... \cite{teoria_sistema_CAPRA}
+
+\section{Plano de Trabalho e Cronograma}
+\label{sec:plano}
+
+\begin{ganttchart}[vgrid, hgrid, x unit=0.75cm, bar/.style={fill=black}]{12}
+  \gantttitle{2013}{8}
+  \gantttitle{2014}{4} \\
+
+  \gantttitle{Abr}{1}
+  \gantttitle{Mai}{1}
+  \gantttitle{Jun}{1}
+  \gantttitle{Jul}{1}
+  \gantttitle{Ago}{1}
+  \gantttitle{Set}{1}
+  \gantttitle{Out}{1}
+  \gantttitle{Nov}{1}
+  \gantttitle{Dez}{1}
+  \gantttitle{Jan}{1}
+  \gantttitle{Fev}{1}
+  \gantttitle{Mar}{1} \\
+
+  \ganttbar{Revisão bibliográfica}{1}{12} \\
+  \ganttbar{Estudo de \textsl{snarks}}{1}{2} \\
+  \ganttbar{Estudo de grafos fluxo-críticos}{1}{2} \\
+  \ganttbar{Investigação da Questão 1}{2}{6} \\
+  \ganttbar{Escrita do relatório parcial}{6}{6} \\
+  \ganttbar{Investigação da Questão 2}{7}{11} \\
+  \ganttbar{Escrita do relatório final}{11}{12}
+\end{ganttchart}
+
+\section{Metodologia}
+
+Por  ser um trabalho  de viés teórico, com  o objetivo  de investigar
+propriedades  estruturais de  certos grafos,  a  metodologia utilizada
+será a usual de propor  conjeturas baseadas na intuição obtida durante
+a  investigação  de  exemplos  e tentar  posteriormente  prová-las  ou
+refutá-las. Vislumbramos  que o uso de programas  de computadores para
+testar a validade de  algumas propriedades para certos \textsl{snarks}
+pode ser interessante no contexto  deste projeto como meio de auxiliar
+nossa  intuição na proposição  de eventuais  conjeturas ou  mesmo para
+resolvê-las.
+
+\bibliographystyle{abbrv} 
+\bibliography{frsi}
+	
+\section{Assinaturas}
+\today
+
+\vspace{1.5cm}
+\begin{tabular}{ccc}
+ &  & \\
+ Jefferson Luiz Oliveira de Campos & \hspace{4cm} & Cândida Nunes da Silva \\
+ (Candidato) & & (Orientadora)  \\
+\end{tabular}
+
+\bibliography{jefferson_qualif}
+
+
+\end{document}

@@ -1,0 +1,8 @@
+Projeto
+=======
+
+Este é o projeto para a qualificação. Para gerar o pdf completo basta rodar:
+
+``
+    make bib
+``
