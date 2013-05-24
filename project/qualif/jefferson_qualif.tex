@@ -11,6 +11,7 @@
 \usepackage{setspace}
 \usepackage{url}
 \usepackage{pgfgantt, tikz}
+\usepackage[pdftex]{hyperref}
 
 \newcommand{\mysection}[1]{\section*{#1}} 
 \newcommand{\mysubsection}[1]{\subsection*{#1}} 
@@ -22,8 +23,8 @@
 \newtheorem{cnj}{Conjetura}
 
 \newcommand{\theolike}[2]{\textbf{#1} \textit{#2}}
-
-\newcommand{\f}{$\blacksquare$}    
+\newcommand{\f}{$\blacksquare$}
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\left(#1\right)}}
 
 \author{\textbf{Candidato:} Jefferson Luiz Oliveira de Campos\\
         \textbf{Orientadora:} Profa. Dra. Cândida Nunes da Silva}
@@ -55,13 +56,83 @@ Resumo...
 
 \section{Introdução}
 
-Intro...
+% Definições básicas de grafos
+% * Grafo
+% * vertices
+% * arrestas
+% * grafos simples
+% * grafos completos
+
+\subsection{Definição Grafos Básicas.}
+Um grafo é um par ordenado que possui um conjunto de vertices, representados por $|V|$ e um conjunto de arrestas associadas à esses vértices representado por $|E|$.\\
+
+Um grafo pode possuir laços, quando uma arresta possui início e fim no mesmo vértice assim como pode haver duas ou mais arrestas que possuem as pontas ligadas exatamente no mesmo vértice. Quando isso ocorre, chamamos esses vértices de vértices paralelos.\\
+
+Um grafo simples é quando o grafo não possui laços e nem arrestas paralelas.\\ Já um grafo completo é quando todo para de vértices possui uma arresta ligando-os.\\
+
+% Roteiro Cândida
+\subsection{Definir o problema}
+
+\subsection{Histórico}
+
+% Historico do Hamilton na coloração.
+
+O problema de mapas planares foi elucidado em 1852 por Willian Rowan Hamilton em uma carta para Augustus De Morgan.\\
+Nesta carta, Hamilton conjecturava que seria possível colorir um mapa utilizando apenas 4 cores e não mais que isso. De Morgan não conseguiu apresentar uma prova para a conjectura, assim como Hamilton falhou nessa empreitada. Posteriormente foram aprensetadfas algumas provas à esse teorema mas foram descobertos diversos problemas com essas provas. Somente no século XX foi apresentada uma prova válida ao teorema.\\
+
+%transcrever o trecho aqui...
+
+\subsection{Relações entre Problemas.}
+
+% Mapeamento entre o problema de coloração vertice/arresta/faces
+% citar quais outros avanços - teorema das 5 cores.
+É interessante notar que esse problema gerou interesse de diversos cientistas e que nesta busca pela prova foram gerados resultados interessantes que ajudaram no progresso de outras áreas dentro da Teoria dos Grafos. Um aspecto interessante deste problema é que ele pode ser mapeado para outros problemas e por consequência, os teoremas utilizados aqui podem ser utilizados nesses problemas. Podemos citar o problema de coloração vértices, o problema de coloração de arrestas e coloração de faces.
+
+\subsection{Número de clique máxima conjunto estável/independente}
+
+\subsubsection{Cardinalidade.}
+
+A cardinalidade de um grafo é o número de vértices existentes no grafo.
+
+\subsubsection{Estabilidade.}
+
+Um conjunto é de vértices de um grafo é dito estável se nenhum para de vértices são adjacentes. Também é dito que se o conjunto estável não pode ser aumentado ele é maximal. Caso o conjunto estável seja o maior existente no grafo ele é chamado de conjunto estável máximo. O número estável, denotado por $\alpha$ é a cardinalidade de um conjunto estável.
+
+\subsubsection{Clique.}
+% mesma idéia do maximal em estabilidade.
+Um clique é definido como um subgrafo completo do grafo original. O clique é máximal quando ele não pode ser aumentado. O clique é dito máximo se ao adicionar um novo vértice ao clique, ele deixa de ser um clique.
+
+\subsubsection{Greedy Algorithm to Find Maximal Clique.}
+
+Partindo de um clique qualquer, basta pegar um novo vértice ainda não testado do grafo e verificar se ele está conectado à todos os vértices do clique. Descarta-se o vértice se ele não estiver conectado à todos os vértices do clique. Caso contrário, adiciona-o ao clique. Este processo continua até que todos os vértices tenham sido testados.\\
+
+% Preciso achar a fonte desta informação.
+A complexidade deste algoritmo é de \BigO{n}.
+
+\subsubsection{Software.}
+
+Implementações disponíveis para o problema do máximo clique de um grafo.
+
+\begin{enumerate}
+\item \href{http://networkx.github.io/documentation/development/reference/generated/networkx.algorithms.approximation.clique.max_clique.html}{NetworkX}
+\item \href{http://www.dcs.gla.ac.uk/~pat/maxClique/distribution/readme.txt}{maxClique}
+\item \href{http://openopt.org/MCP}{OpenOpt}
+\end{enumerate}
+
+
+\subsection{NP-completo (Garey \& Johnson)}
+
+\subsection{redução à sub-classe}
+
+\subsection{algoritmos exatos}
+
+\subsection{heurísticas disponíveis}
 
 
 \section{Objetivos}
 \label{sec:objetivos}
 
-Objetivos... \cite{teoria_sistema_CAPRA}
+Objetivos...
 
 \section{Plano de Trabalho e Cronograma}
 \label{sec:plano}
@@ -117,7 +188,13 @@ resolvê-las.
  (Candidato) & & (Orientadora)  \\
 \end{tabular}
 
-\bibliography{jefferson_qualif}
+% FIXME bibtex not working!!!
+% \bibliography{jefferson_qualif}
+% \nocite{MUNARI:2006}
 
+% Bibliografia Utilizada até o momento:
+% * Boundy & Murty - Livro Base
+% * Paulo Oswaldo Boaventura Netto - Grafos
+% * Ruy Eduardo Campelo & Nelson Maculan - algoritmos e heurísticas
 
 \end{document}
