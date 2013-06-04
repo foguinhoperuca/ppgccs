@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-c -Wall
+CFLAGS=-c -Wall -std=c99
 LDFLAGS=-g
 SOURCES=t1-jeffersonloc.c
 OBJECTS=$(SOURCES:.c=.o)
@@ -52,6 +52,10 @@ test: run
 iso: INPUT = t1_ISOMORPHIC.in
 iso: SOLUTION = $(INPUT)
 iso: test
+
+iso_stdout: INPUT = t1_ISOMORPHIC.in
+iso_stdout: clean compile
+	./$(EXECUTABLE) < $(INPUT)
 
 niso: INPUT = t1_NOT_ISOMORPHIC.in
 niso: SOLUTION = $(INPUT)
