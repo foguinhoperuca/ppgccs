@@ -49,7 +49,7 @@
 \newpage
 \pagenumbering{arabic}
 
-%O projeto de pesquisa deve ser apresentado de maneira clara e resumida, ocupando, no máximo, 20 páginas datilografadas em espaço duplo. Deve compreender: resumo com no máximo 20 linhas, introdução e justificativa, com síntese da bibliografia fundamental; objetivos; plano de trabalho e cronograma de sua execução; material e métodos; forma de análise dos resultados. A responsabilidade pelo projeto é  do orientador, mas o aluno deve estar apto a discutir.
+%O projeto de pesquisa deve ser apresentado de maneira clara e resumida, ocupando, no máximo, 20 páginas datilografadas em espaço duplo. Deve compreender: resumo com no máximo 20 linhas, introdução e justificativa, com síntese da bibliografia fundamental; objetivos; plano de trabalho e cronograma de sua execução; material e métodos; forma de análise dos resultados. A responsabilidade pelo projeto é do orientador, mas o aluno deve estar apto a discutir.
 
 \section{Resumo}
 
@@ -60,43 +60,16 @@ Resumo...
 % Definições básicas de grafos
 % * Grafo
 % * vertices
-% * arrestas
+% * arestas
 % * grafos simples
 % * grafos completos
 
-\subsection{Definição Grafos Básicas.}
-Um grafo é um par ordenado que possui um conjunto de vertices, representados por $|V|$ e um conjunto de arrestas associadas à esses vértices representado por $|E|$.\\
+\subsection{Definições Elementares de Grafos.}
+Um grafo é um par ordenado que possui um conjunto de vertices, representados por $|V|$ e um conjunto de arestas associadas à esses vértices representado por $|E|$.\\
 
-Um grafo pode possuir laços, quando uma arresta possui início e fim no mesmo vértice assim como pode haver duas ou mais arrestas que possuem as pontas ligadas exatamente no mesmo vértice. Quando isso ocorre, chamamos esses vértices de vértices paralelos.\\
+Um grafo pode possuir laços, quando uma aresta possui início e fim no mesmo vértice assim como pode haver duas ou mais arestas que possuem as pontas ligadas exatamente no mesmo vértice. Quando isso ocorre, chamamos esses vértices de vértices paralelos.\\
 
-Um grafo simples é quando o grafo não possui laços e nem arrestas paralelas.\\ Já um grafo completo é quando todo para de vértices possui uma arresta ligando-os.\\
-
-% Ziviani
-% * Grafo
-% * Grafo direcionado/não direcionado
-% * self-loops
-% * grafo não direcionado
-% * adjacências
-% * grau do vertice
-% * caminho
-% * ciclo em grafo
-% * grafo conectado
-% * Componentes conectados
-% * componentes fortemente conectado
-% * grafo direcionado fortemente conectado
-% * isomorfismo no grafo
-% * subgrafo
-% * vizinhaça
-% * grafo ponderado
-% * grafo bipartido
-% * hipergrafo
-% * grafo completo
-% * grafo diferente
-% * arvore (grafo)
-% * floresta (grafo)
-% * DAG - Direct Acycle Graph
-% * arvore geradora
-% * floresta geradora
+Um grafo simples é quando o grafo não possui laços e nem arestas paralelas.\\ Já um grafo completo é quando todo para de vértices possui uma aresta ligando-os.\\
 
 \subsection{Coloração de Vértices.}
 
@@ -104,21 +77,33 @@ Uma \emph{k-coloração} de um grafo $G =(V, E)$ pode ser definida como um mapea
 
 Uma coloração $c$ qualquer é dita própria se nenhum vértice adjacente entre si possui a mesma coloração. Isto posto, fica evidadente que somente grafos sem laços adminitem tal construção. Já uma \emph{k-coloração} própria é quando cada classe de coloração é um \emph{conjunto estável} (ou \emph{conjunto independente}).
 
-Um conjunto de vértices é dito \emph{estável} quando ele possui a seguinte propriedade: dado os vértices $v_1$ e $v_2$ dois a dois de um grafo não dirigido, não há nenhuma arresta que incide em $v_1$ e $v_2$ ao mesmo tempo. Já um clique é definido como um conjunto de vértices, de um grafo não dirigido, no qual ele possui a propriedade que tomado os vértices $v_1$ e $v_2$ dois a dois, há uma arresta que incide em $v_1$ e $v_2$ ao mesmo tempo. Isto posto, nota-se que os conceitos de conjunto estável e clique são complementares.
+Um conjunto de vértices é dito \emph{estável} quando ele possui a seguinte propriedade: dado os vértices $v_1$ e $v_2$ dois a dois de um grafo não dirigido, não há nenhuma aresta que incide em $v_1$ e $v_2$ ao mesmo tempo. Também é dito que se o conjunto de vértices estável não pode ser aumentado ele é \emph{maximal}. Caso o conjunto de vértices estável seja o maior existente no grafo ele é denominado \emph{conjunto estável máximo}. O \emph{número estável}, denotado por $\alpha$, é a \emph{cardinalidade} de um conjunto de vértices estável. A \emph{cardinalidade} de um grafo, por sua vez, é o número de vértices existentes no grafo.
 
-Alternativamente, uma \emph{k-coloração} pode ser vista como uma partição: $\{V_1, V_2, V_3, V_4, V_5, ...\}$ do conjunto de vértices $V$ do grafo, sendo $V_i$ o conjunto de vértices associados à cor $i$. O conjunto $V_i$ é denominado classe de coloração. Nota-se que um ou mais conjuntos $V_i$ pode ser vazio.
+Já uma clique é definido como um conjunto de vértices, de um grafo não dirigido, no qual ele possui a propriedade que tomado os vértices $v_1$ e $v_2$ dois a dois, há uma aresta que incide em $v_1$ e $v_2$ ao mesmo tempo. Em outras palavras, uma clique é subgrafo completo do seu grafo original. A clique é máximal quando a mesma não pode ser aumentada adicionando-se um vértice do grafo. Caso isso ocorra, esse vértice irá possuir uma aresta que incide nele com um extremao e o outro extremo da aresta incidirá em um vértice externo à clique. A clique é dita máxima se ao adicionar um novo vértice à clique, ela deixa de ser uma clique.
 
-Um grafo é dito \emph{colorível} se ele possui uma \emph{k-coloração}. Assim sendo, é possível definir um grafo como \emph{1-coloração} se, e somente se, ele for vazio. Um grafo é vazio quando não possui nenhum vértice e consequentemente, nenhuma arresta. Já um grafo dito ser \emph{2-coloração} implica que o mesmo seja bipartido. Nota-se que um grafo é \emph{k-colorível} se, e somente se, seu grafo simples subjacente também for \emph{k-colorível}.
+Isto posto, nota-se que os conceitos de conjunto estável e clique são complementares.
+
+Alternativamente, uma \emph{k-coloração} pode ser vista como uma partição: $\{V_1, V_2, V_3, V_4, V_5, ...\}$ do conjunto de vértices $V$ do grafo, sendo $V_i$ o conjunto de vértices associados à cor $i$. O conjunto $V_i$ é denominado \emph{classe de coloração}. Nota-se que um ou mais conjuntos $V_i$ podem ser vazios. Uma partição, por sua vez, é um subconjunto dos vértices grafo $G$ que contém um ou mais vértices do grafo.
+
+Um grafo é dito \emph{colorível} se ele possui uma \emph{k-coloração}. Assim sendo, é possível definir um grafo como \emph{1-coloração} se, e somente se, ele for vazio. Um grafo é vazio quando não possui nenhum vértice e consequentemente, nenhuma aresta. Já um grafo dito ser \emph{2-coloração} implica que o mesmo seja bipartido. Nota-se que um grafo é \emph{k-colorível} se, e somente se, seu grafo simples subjacente também for \emph{k-colorível}.
 
 O \emph{número cromático} de um grafo, denotado por $\chi(G)$, é o menor valor possível que $k$ pode assumir para que o grafo seja \emph{k-colorível}. Assim, um grafo é dito \emph{k-cormático} se seu \emph{número cromático} for igual à $k$. Um grafo completo $K_n$ possui o seu \emph{número cromático} igual à $n$, haja visto que nenhum vértice pode receber a mesma cor pois todos os vértice são adjacentes entre si. A expressão
-$\chi \geq \frac{n}{\alpha}$, onde $n$ é o número de vértices no grafo e $\alpha$ é o número de vértices em cada conjunto estável, indica que todo grafo $G$ possui o seu \emph{número cromático} proporcional à sua quantidade de classes de coloração.
+$\chi \geq \frac{n}{\alpha}$, onde $n$ é o número de vértices no grafo e $\alpha$ é o número de vértices em cada conjunto estável (ou seja, a \emph{cardinalidade} de cada conjunto estável), indica que todo grafo $G$ possui o seu \emph{número cromático} proporcional ao número de \emph{classes de coloração}.
+
+\subsubsection{Heurística para Coloração de Vértice (Utilizando uma Estratégia Gulosa).}
+
+Partindo de um clique qualquer, basta pegar um novo vértice ainda não testado do grafo e verificar se ele está conectado à todos os vértices do clique. Descarta-se o vértice se ele não estiver conectado à todos os vértices do clique. Caso contrário, adiciona-o ao clique. Este processo continua até que todos os vértices tenham sido testados.\\
+
+% Preciso achar a fonte desta informação.
+A complexidade deste algoritmo é de \BigO{n}.
+
 
 % Roteiro Cândida
 \subsection{Definir o problema}
 
 \subsection{Histórico}
 
-% Historico do Hamilton na coloração.
+% Historico do Hamilton na coloração. Melhorar - e muito!
 
 O problema de mapas planares foi elucidado em 1852 por Willian Rowan Hamilton em uma carta para Augustus De Morgan.\\
 Nesta carta, Hamilton conjecturava que seria possível colorir um mapa utilizando apenas 4 cores e não mais que isso. De Morgan não conseguiu apresentar uma prova para a conjectura, assim como Hamilton falhou nessa empreitada. Posteriormente foram aprensetadfas algumas provas à esse teorema mas foram descobertos diversos problemas com essas provas. Somente no século XX foi apresentada uma prova válida ao teorema.\\
@@ -127,43 +112,23 @@ Nesta carta, Hamilton conjecturava que seria possível colorir um mapa utilizand
 
 \subsection{Relações entre Problemas.}
 
-% Mapeamento entre o problema de coloração vertice/arresta/faces
+% Mapeamento entre o problema de coloração vertice/aresta/faces
 % citar quais outros avanços - teorema das 5 cores.
-É interessante notar que esse problema gerou interesse de diversos cientistas e que nesta busca pela prova foram gerados resultados interessantes que ajudaram no progresso de outras áreas dentro da Teoria dos Grafos. Um aspecto interessante deste problema é que ele pode ser mapeado para outros problemas e por consequência, os teoremas utilizados aqui podem ser utilizados nesses problemas. Podemos citar o problema de coloração vértices, o problema de coloração de arrestas e coloração de faces.
+É interessante notar que esse problema gerou interesse de diversos cientistas e que nesta busca pela prova foram gerados resultados interessantes que ajudaram no progresso de outras áreas dentro da Teoria dos Grafos. Um aspecto interessante deste problema é que ele pode ser mapeado para outros problemas e por consequência, os teoremas utilizados aqui podem ser utilizados nesses problemas. Podemos citar o problema de coloração vértices, o problema de coloração de arestas e coloração de faces.
 
 % Algoritmo de caminho mínimo influência no problema de coloração de vértices?
 
-
 \subsection{Número de clique máxima conjunto estável/independente}
 
-\subsubsection{Cardinalidade.}
+% \subsubsection{Software.}
 
-A cardinalidade de um grafo é o número de vértices existentes no grafo.
+% Implementações disponíveis para o problema do máximo clique de um grafo.
 
-\subsubsection{Estabilidade.}
-
-Um conjunto é de vértices de um grafo é dito estável se nenhum para de vértices são adjacentes. Também é dito que se o conjunto estável não pode ser aumentado ele é maximal. Caso o conjunto estável seja o maior existente no grafo ele é chamado de conjunto estável máximo. O número estável, denotado por $\alpha$ é a cardinalidade de um conjunto estável.
-
-\subsubsection{Clique.}
-% mesma idéia do maximal em estabilidade.
-Um clique é definido como um subgrafo completo do grafo original. O clique é máximal quando ele não pode ser aumentado. O clique é dito máximo se ao adicionar um novo vértice ao clique, ele deixa de ser um clique.
-
-\subsubsection{Greedy Algorithm to Find Maximal Clique.}
-
-Partindo de um clique qualquer, basta pegar um novo vértice ainda não testado do grafo e verificar se ele está conectado à todos os vértices do clique. Descarta-se o vértice se ele não estiver conectado à todos os vértices do clique. Caso contrário, adiciona-o ao clique. Este processo continua até que todos os vértices tenham sido testados.\\
-
-% Preciso achar a fonte desta informação.
-A complexidade deste algoritmo é de \BigO{n}.
-
-\subsubsection{Software.}
-
-Implementações disponíveis para o problema do máximo clique de um grafo.
-
-\begin{enumerate}
-\item \href{http://networkx.github.io/documentation/development/reference/generated/networkx.algorithms.approximation.clique.max_clique.html}{NetworkX}
-\item \href{http://www.dcs.gla.ac.uk/~pat/maxClique/distribution/readme.txt}{maxClique}
-\item \href{http://openopt.org/MCP}{OpenOpt}
-\end{enumerate}
+% \begin{enumerate}
+% \item \href{http://networkx.github.io/documentation/development/reference/generated/networkx.algorithms.approximation.clique.max_clique.html}{NetworkX}
+% \item \href{http://www.dcs.gla.ac.uk/~pat/maxClique/distribution/readme.txt}{maxClique}
+% \item \href{http://openopt.org/MCP}{OpenOpt}
+% \end{enumerate}
 
 
 \subsection{NP-completo (Garey \& Johnson)}
