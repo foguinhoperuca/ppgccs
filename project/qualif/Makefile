@@ -1,4 +1,4 @@
-GITHUB_FOLDER=/home/jefferson/universal/Dropbox/projects/ppgccs/github/
+GITHUB_FOLDER=~/universal/Dropbox/projects/ppgccs/github
 PROJECT=jefferson_qualif
 DELETE_FILES=${shell cat ${GITHUB_FOLDER}/.gitignore}
 

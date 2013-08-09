@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 %\usepackage{mcmacros}
 \usepackage{fullpage}
-\usepackage{amsmath}
+% \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{subfigure}
@@ -12,6 +12,7 @@
 \usepackage{url}
 \usepackage{pgfgantt, tikz}
 \usepackage[pdftex]{hyperref}
+\usepackage{mathtools}
 
 \newcommand{\mysection}[1]{\section*{#1}} 
 \newcommand{\mysubsection}[1]{\subsection*{#1}} 
@@ -70,6 +71,48 @@ Um grafo pode possuir laços, quando uma arresta possui início e fim no mesmo v
 
 Um grafo simples é quando o grafo não possui laços e nem arrestas paralelas.\\ Já um grafo completo é quando todo para de vértices possui uma arresta ligando-os.\\
 
+% Ziviani
+% * Grafo
+% * Grafo direcionado/não direcionado
+% * self-loops
+% * grafo não direcionado
+% * adjacências
+% * grau do vertice
+% * caminho
+% * ciclo em grafo
+% * grafo conectado
+% * Componentes conectados
+% * componentes fortemente conectado
+% * grafo direcionado fortemente conectado
+% * isomorfismo no grafo
+% * subgrafo
+% * vizinhaça
+% * grafo ponderado
+% * grafo bipartido
+% * hipergrafo
+% * grafo completo
+% * grafo diferente
+% * arvore (grafo)
+% * floresta (grafo)
+% * DAG - Direct Acycle Graph
+% * arvore geradora
+% * floresta geradora
+
+\subsection{Coloração de Vértices.}
+
+Uma \emph{k-coloração} de um grafo $G =(V, E)$ pode ser definida como um mapeamento $c: V \rightarrow S$ sendo $S$ um conjunto de $k$ cores, usualmente denotado pelo conjunto $\{1, 2, 3, 4, 5, ..., k\}$. Este mapeamento atribui $k$ cores aos vértices do grafo.
+
+Uma coloração $c$ qualquer é dita própria se nenhum vértice adjacente entre si possui a mesma coloração. Isto posto, fica evidadente que somente grafos sem laços adminitem tal construção. Já uma \emph{k-coloração} própria é quando cada classe de coloração é um \emph{conjunto estável} (ou \emph{conjunto independente}).
+
+Um conjunto de vértices é dito \emph{estável} quando ele possui a seguinte propriedade: dado os vértices $v_1$ e $v_2$ dois a dois de um grafo não dirigido, não há nenhuma arresta que incide em $v_1$ e $v_2$ ao mesmo tempo. Já um clique é definido como um conjunto de vértices, de um grafo não dirigido, no qual ele possui a propriedade que tomado os vértices $v_1$ e $v_2$ dois a dois, há uma arresta que incide em $v_1$ e $v_2$ ao mesmo tempo. Isto posto, nota-se que os conceitos de conjunto estável e clique são complementares.
+
+Alternativamente, uma \emph{k-coloração} pode ser vista como uma partição: $\{V_1, V_2, V_3, V_4, V_5, ...\}$ do conjunto de vértices $V$ do grafo, sendo $V_i$ o conjunto de vértices associados à cor $i$. O conjunto $V_i$ é denominado classe de coloração. Nota-se que um ou mais conjuntos $V_i$ pode ser vazio.
+
+Um grafo é dito \emph{colorível} se ele possui uma \emph{k-coloração}. Assim sendo, é possível definir um grafo como \emph{1-coloração} se, e somente se, ele for vazio. Um grafo é vazio quando não possui nenhum vértice e consequentemente, nenhuma arresta. Já um grafo dito ser \emph{2-coloração} implica que o mesmo seja bipartido. Nota-se que um grafo é \emph{k-colorível} se, e somente se, seu grafo simples subjacente também for \emph{k-colorível}.
+
+O \emph{número cromático} de um grafo, denotado por $\chi(G)$, é o menor valor possível que $k$ pode assumir para que o grafo seja \emph{k-colorível}. Assim, um grafo é dito \emph{k-cormático} se seu \emph{número cromático} for igual à $k$. Um grafo completo $K_n$ possui o seu \emph{número cromático} igual à $n$, haja visto que nenhum vértice pode receber a mesma cor pois todos os vértice são adjacentes entre si. A expressão
+$\chi \geq \frac{n}{\alpha}$, onde $n$ é o número de vértices no grafo e $\alpha$ é o número de vértices em cada conjunto estável, indica que todo grafo $G$ possui o seu \emph{número cromático} proporcional à sua quantidade de classes de coloração.
+
 % Roteiro Cândida
 \subsection{Definir o problema}
 
@@ -87,6 +130,9 @@ Nesta carta, Hamilton conjecturava que seria possível colorir um mapa utilizand
 % Mapeamento entre o problema de coloração vertice/arresta/faces
 % citar quais outros avanços - teorema das 5 cores.
 É interessante notar que esse problema gerou interesse de diversos cientistas e que nesta busca pela prova foram gerados resultados interessantes que ajudaram no progresso de outras áreas dentro da Teoria dos Grafos. Um aspecto interessante deste problema é que ele pode ser mapeado para outros problemas e por consequência, os teoremas utilizados aqui podem ser utilizados nesses problemas. Podemos citar o problema de coloração vértices, o problema de coloração de arrestas e coloração de faces.
+
+% Algoritmo de caminho mínimo influência no problema de coloração de vértices?
+
 
 \subsection{Número de clique máxima conjunto estável/independente}
 
@@ -196,5 +242,6 @@ resolvê-las.
 % * Boundy & Murty - Livro Base
 % * Paulo Oswaldo Boaventura Netto - Grafos
 % * Ruy Eduardo Campelo & Nelson Maculan - algoritmos e heurísticas
+% * Paulo Feofiloff - http://www.ime.usp.br/~pf/algoritmos_em_grafos/aulas/cliques.html
 
 \end{document}
