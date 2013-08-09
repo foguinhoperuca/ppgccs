@@ -13,6 +13,9 @@
 \usepackage{pgfgantt, tikz}
 \usepackage[pdftex]{hyperref}
 \usepackage{mathtools}
+% \usepackage{algorithm}
+% \usepackage{algorithmic}
+\usepackage[portuguese, boxed, linesnumbered]{algorithm2e}
 
 \newcommand{\mysection}[1]{\section*{#1}} 
 \newcommand{\mysubsection}[1]{\subsection*{#1}} 
@@ -65,11 +68,14 @@ Resumo...
 % * grafos completos
 
 \subsection{Definições Elementares de Grafos.}
-Um grafo é um par ordenado que possui um conjunto de vertices, representados por $|V|$ e um conjunto de arestas associadas à esses vértices representado por $|E|$.\\
 
-Um grafo pode possuir laços, quando uma aresta possui início e fim no mesmo vértice assim como pode haver duas ou mais arestas que possuem as pontas ligadas exatamente no mesmo vértice. Quando isso ocorre, chamamos esses vértices de vértices paralelos.\\
+\textbf{\textit{FIXME extremamente elementar - grande probabilidade de remover este texto posteriormente.}}
 
-Um grafo simples é quando o grafo não possui laços e nem arestas paralelas.\\ Já um grafo completo é quando todo para de vértices possui uma aresta ligando-os.\\
+Um grafo é um par ordenado que possui um conjunto de vertices, representados por $|V|$ e um conjunto de arestas associadas à esses vértices representado por $|E|$.
+
+Um grafo pode possuir laços, quando uma aresta possui início e fim no mesmo vértice assim como pode haver duas ou mais arestas que possuem as extremidades ligadas exatamente no mesmo vértice. Quando isso ocorre, chamamos esses vértices de vértices paralelos.
+
+Um grafo simples é quando o grafo não possui laços e nem arestas paralelas. Já um grafo completo é quando todo para de vértices possui uma aresta ligando-os.
 
 \subsection{Coloração de Vértices.}
 
@@ -90,31 +96,75 @@ Um grafo é dito \emph{colorível} se ele possui uma \emph{k-coloração}. Assim
 O \emph{número cromático} de um grafo, denotado por $\chi(G)$, é o menor valor possível que $k$ pode assumir para que o grafo seja \emph{k-colorível}. Assim, um grafo é dito \emph{k-cormático} se seu \emph{número cromático} for igual à $k$. Um grafo completo $K_n$ possui o seu \emph{número cromático} igual à $n$, haja visto que nenhum vértice pode receber a mesma cor pois todos os vértice são adjacentes entre si. A expressão
 $\chi \geq \frac{n}{\alpha}$, onde $n$ é o número de vértices no grafo e $\alpha$ é o número de vértices em cada conjunto estável (ou seja, a \emph{cardinalidade} de cada conjunto estável), indica que todo grafo $G$ possui o seu \emph{número cromático} proporcional ao número de \emph{classes de coloração}.
 
-\subsubsection{Heurística para Coloração de Vértice (Utilizando uma Estratégia Gulosa).}
+\subsection{Heurística para Coloração de Vértice.}
 
-Partindo de um clique qualquer, basta pegar um novo vértice ainda não testado do grafo e verificar se ele está conectado à todos os vértices do clique. Descarta-se o vértice se ele não estiver conectado à todos os vértices do clique. Caso contrário, adiciona-o ao clique. Este processo continua até que todos os vértices tenham sido testados.\\
+% TODO falar sobre grafo 1-colorivel, 2 colorivel, etc.
 
-% Preciso achar a fonte desta informação.
-A complexidade deste algoritmo é de \BigO{n}.
+Um grafo \emph{1-colorível} é trivial de identificar, uma vez que ele é necessáriamente um grafo vazio. Já um grafo com \emph{2-coloração} é bipartido e portanto é possível utilizar-se de um algoritmo de tempo polinomial (como a busca em largura, por exemplo) para identificar se o grafo é de fato \emph{2-colorível}.
 
+Entretanto, o problema de identificar se um grafo é \emph{3-colorível} não guarda semelhança alguma com os problemas anteriormente citados, sendo esse um problema $\mathcal{NP}$-completo. Sabe-se que o problema de determinar o \emph{número cromático} de um dado grafo é $\mathcal{NP}$-difícil. Portanto, para situações reais são utilizadas diversas heurísticas para resolver este problema.
+
+\subsubsection{Heurística Utilizando uma Estratégia Gulosa.}
+
+Uma estratégia gulosa é uma estratégia na qual as decisões são tomadas com base nas condições e dados do momento da decisão e que leve à melhor melhor escolha no momento. É uma estratégia baseada em decisões sobre ótimos locais e com a esperança que essas decisões levem a uma solução que seja ótima globalmente.
+
+Uma heurística utilizando essa estratégia pode ser descrita a seguir:
+
+\begin{algorithm}[H]
+  \caption{Heurística Gulosa para Determinação do Número Cromático}
+  \SetAlgoLined
+  \KwData{Grafo G}
+  \KwResult{Coloração de G}
+  Organize os vértice em uma ordem determinada (linear, por exemplo)\;
+  Adicione uma cor à cada vértice pela ordem obtidada no passo anterior. A cor deve ser uma que ainda não foi colorida nenhum dos vértices adjacentes\;
+\end{algorithm}\ % FIXME precisa pular 1 linha do box do algoritmo usando a barra?
+ 
+É possível notar que este algoritmo não necessáriamente obtém o número mínimo de cores para um grafo. De fato, o número de cores depende fortemente como a ordenação no \emph{passo 1} é realizada. Portanto, o problema resume-se em saber, de antemão qual a ordenação é capaz de determinar o número mínimo de cores necessárias para colorir os grafo.
+
+% Jeff: meu feeling é que seja, de fato O(n). Vou precisar provar isso.
+Também fica claro que um algoritmo desse possui uma complexidade de $\BigO{n}$, visto que é necessário percorrer todos os vértices do grafo para colorí-los.
+
+Sabe-se que o número de cores utilizadas pela heurística gulosa nunca é maior que $\Delta + 1$. Assim, é possível inferir a seguinte equação: $\chi \leq \Delta + 1$. De fato, independente da ordem em que os vértices são organizados, quando uma cor estiver prestes à ser adicionada ao vértice, o número de vizinhos do vértice já coloridos não é maior que o grau do vértice que, por sua vez, certamente não é maior que o grau máximo do grafo. Logo, no máximo será necessário disponibilizar, no máximo $\Delta + 1$ cores.
+
+\subsubsection{Heurística para Aumentar uma Clique do Grafo Utilizando uma Estratégia Gulosa.}
+
+\begin{algorithm}[H]
+  \caption{Heurística para Aumentar uma Clique do Grafo Utilizando uma Estratégia Gulosa}
+  \SetAlgoLined
+  \KwData{uma clique de G}
+  \KwResult{uma clique maximal}
+  Partindo de um clique qualquer, basta pegar um novo vértice ainda não testado do grafo\;
+  Verifique se ele está conectado à todos os vértices do clique\;
+  Descarta-se o vértice se ele não estiver conectado à todos os vértices do clique\;
+  Caso contrário, adiciona-o ao clique\;
+  Este processo continua até que todos os vértices tenham sido testados\
+\end{algorithm}\ % FIXME precisa pular 1 linha do box do algoritmo usando a barra?
+
+% Jeff: meu feeling é que seja, de fato O(n). Vou precisar provar isso.
+Também fica claro que um algoritmo desse possui uma complexidade de $\BigO{n}$, visto que é necessário percorrer todos os vértices do grafo para colorí-los.
+
+% TODO encontrar outras heurísticas disponíveis.
 
 % Roteiro Cândida
 \subsection{Definir o problema}
 
 \subsection{Histórico}
 
+Ainda não melhorado...
+
 % Historico do Hamilton na coloração. Melhorar - e muito!
 
-O problema de mapas planares foi elucidado em 1852 por Willian Rowan Hamilton em uma carta para Augustus De Morgan.\\
-Nesta carta, Hamilton conjecturava que seria possível colorir um mapa utilizando apenas 4 cores e não mais que isso. De Morgan não conseguiu apresentar uma prova para a conjectura, assim como Hamilton falhou nessa empreitada. Posteriormente foram aprensetadfas algumas provas à esse teorema mas foram descobertos diversos problemas com essas provas. Somente no século XX foi apresentada uma prova válida ao teorema.\\
+% O problema de mapas planares foi elucidado em 1852 por Willian Rowan Hamilton em uma carta para Augustus De Morgan.\\
+% Nesta carta, Hamilton conjecturava que seria possível colorir um mapa utilizando apenas 4 cores e não mais que isso. De Morgan não conseguiu apresentar uma prova para a conjectura, assim como Hamilton falhou nessa empreitada. Posteriormente foram aprensetadfas algumas provas à esse teorema mas foram descobertos diversos problemas com essas provas. Somente no século XX foi apresentada uma prova válida ao teorema.\\
 
 %transcrever o trecho aqui...
 
 \subsection{Relações entre Problemas.}
 
-% Mapeamento entre o problema de coloração vertice/aresta/faces
-% citar quais outros avanços - teorema das 5 cores.
-É interessante notar que esse problema gerou interesse de diversos cientistas e que nesta busca pela prova foram gerados resultados interessantes que ajudaram no progresso de outras áreas dentro da Teoria dos Grafos. Um aspecto interessante deste problema é que ele pode ser mapeado para outros problemas e por consequência, os teoremas utilizados aqui podem ser utilizados nesses problemas. Podemos citar o problema de coloração vértices, o problema de coloração de arestas e coloração de faces.
+Mapeamento entre o problema de coloração vertice/aresta/faces - texto ainda incompleto
+
+% TODO citar quais outros avanços - teorema das 5 cores.
+% É interessante notar que esse problema gerou interesse de diversos cientistas e que nesta busca pela prova foram gerados resultados interessantes que ajudaram no progresso de outras áreas dentro da Teoria dos Grafos. Um aspecto interessante deste problema é que ele pode ser mapeado para outros problemas e por consequência, os teoremas utilizados aqui podem ser utilizados nesses problemas. Podemos citar o problema de coloração vértices, o problema de coloração de arestas e coloração de faces.
 
 % Algoritmo de caminho mínimo influência no problema de coloração de vértices?
 
