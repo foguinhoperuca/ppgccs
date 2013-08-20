@@ -1,0 +1,10 @@
+Projeto
+=======
+
+Este é o projeto para a qualificação. Para gerar o pdf completo basta rodar:
+
+```
+    make
+```
+
+Automaticamente o projeto será limpo o diretório, o projeto compilado e inserido a bibliografia pertinente no documento final.
