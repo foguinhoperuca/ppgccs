@@ -17,19 +17,34 @@
 
 \begin{document}
 
-% \input{./title.tex}
-
+% Nesta seção serão capturadas as principais idéias do texto
 \section{Resumo.}
 
-Resume the text...
+GCP = Graph Coloring Problem
 
-% \includegraphics[width=1.15\textwidth]{./seminar_ecology.png}\\[1cm]
+O problema de coloração de vértices pode ter, ao menos, duas versões: otimização e decisão.
 
-% \nocite{website:efficiency_issues_site}
-% \nocite{texbook:efficiency_issues}
+Existem basicamente 3 heurísitcas utilizadas para o GCP, que apesar de terem um desempenho razoável não garantem uma aproximação da solução/qualidade da solução:
+
+\begin{itemize}
+\item textbf{simplest}: ordena os vértices do grafo pelo seu grau e sequencialmente colore cada vértice, de acordo com a ordem pré-estabelecida, utilizando a menor cor possível.
+\item textbf{DSATUR}: Possui o mesmo \lq\lq{}espírito\rq\rq{} do algoritmo \lq\lq{}simplest\rq\rq{} porém com o diferencial na forma de ordenação dos vértices. Esta ordenação utiliza-se do \lq\lq{}grau de sdaturação\rq\rq{}, isto é, que tem o mair grau induzido pelos vértices já coloridos.
+\item textbf{RLF}: Este algoritmo possui uma estratégia distinta: colore sequencialmente os conjuntos estáveis, conforme vai construindo-os.
+\end{itemize}
+
+% TODO comentar sobre o desenpenho geral deles: O(n^3) RLF e O(n^2) os outros dois.
+
+A heurística RLF é utilizada como referência tanto na questão da qualidade da heurística como no desempenho. O artigo, portanto, estuda uma implementação mais eficiente: Lazy RLF. O artigo, também, estuda uma estrutura de dados diferente para a representação do grafo.
+
+\section{Comentários Jefferson.}
+
+\begin{itemize}
+\item Como eu garanto que um determinado algoritmo encontrou a resposta correta? Faço uma verificação manual? Se sim, há casos que eu não posso realizar essa verificação (por exemplo, quando o número de vértice é muito grande e humanamente impossível colorí-los).
+\item aparentemente há uma classe de algoritmos \lq\lq{}construtivos\rq\rq{} para o GCP. Se existe tal classe, deve haver outras classes, não?
+\end{itemize}
+
 \nocite{*}
 \bibliographystyle{ieeetr}
 \bibliography{efficiency_issues_in_the_RLF_heuristic_for_graph_coloring}
 
 \end{document}
-
