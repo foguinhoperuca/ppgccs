@@ -1,3 +1,6 @@
+*.acn
+*.acr
+*.alg
 *.aux
 *.bbl
 *.blg
@@ -16,12 +19,17 @@
 *.nav
 *.nlo
 *.out
+*.pdf
 *.pdfsync
 *.ps
 *.snm
 *.synctex.gz
+*.tdo
 *.toc
 *.vrb
+*.xdy
 *.maf
 *.mtc
 *.mtc0
+*~
+*#

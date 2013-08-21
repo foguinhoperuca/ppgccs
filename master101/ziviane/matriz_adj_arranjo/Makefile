@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-c -g -Wall -std=c99
+CFLAGS=-c -g -Wall
 LDFLAGS=
-SOURCES=t1-jeffersonloc.c
+SOURCES=test_operadores_TAD_grafos.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=t1-jeffersonloc
 MY_SOLUTION=$(EXECUTABLE).my.sol
@@ -13,12 +13,9 @@ SOLUTION=t1.sol
 all: usage
 
 usage:
-	@echo "usage make [iso|niso|jeff|t1]"
+	@echo "usage make [mat_adj]"
 	@echo "--------------------------------------------------------------------------------"
-	@echo "iso   : my (simple) personal test with isomorphic graph -only!"
-	@echo "niso  : my (simple) personal test with not isomorphic graph only!"
-	@echo "jeff  : my (simple) personal test with isomorphic AND not isomorphic graph only!"
-	@echo "t1    : Full test by guidelines!"
+	@echo "mat_adj: my (simple) personal test with isomorphic graph -only!"
 	@echo "--------------------------------------------------------------------------------"
 	@echo "You can use too: make [clean|compile]"
 	@echo "The targets 'run' and 'test' do not make sense by itself - you need use one of those targets: [iso|niso|jeff|t1]"
