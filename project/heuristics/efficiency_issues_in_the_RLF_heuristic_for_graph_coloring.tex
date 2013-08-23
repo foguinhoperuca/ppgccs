@@ -51,20 +51,25 @@ Na segunda parte é onde ocorre a computação relevante. Inicialmente podemos d
 
 \begin{itemize}
 \item $G[X]$ como o subgrafo induzido pelo conjunto X;
-\item $\delta (v)$ é o conjunto dos vértices adjancetes à v;
-\item $d_X(v)$ é o grau de $v$ induzido por $X$ sendo $d_X(v) = | \delta (v)|$;
+\item $\delta (v)$ é o conjunto dos vértices adjacentes à v no $G[X \cup v]$;
+\item $d_X(v)$ é o grau de $v$ induzido por $X$ sendo $d_X(v) = |\delta (v)|$;
 \item $P$ é o conjunto de vértices que ainda não foram coloridos;
 \item $U$ é o conjunto de vértice que não podem ser adicionados ao conjunto estável;
 \end{itemize}
 
-Tem-se inicialmente que $P = V$ e que $U = \emptyset$.
+Tem-se inicialmente que $P = V$ e que $U = \emptyset$ e o grau induzido em $U$ para todos os vértices é 0. O procedimento seleciona sucessivamente o vértive $v$ para ser colorido, move os seus vizinhos $\delta_p (v)$ de $P$ para $U$, reduz o grafo de entrada G e atualiza o grau de cada vértice adjacente ao vértice movido de $P$ para $U$ induzido por $U$.
 
 \subsubsection{Complexidade.}
+
+% TODO
 
 \section{Comentários Jefferson.}
 
 \begin{itemize}
-\item Como eu garanto que um determinado algoritmo encontrou a resposta correta? Faço uma verificação manual? Se sim, há casos que eu não posso realizar essa verificação (por exemplo, quando o número de vértice é muito grande e humanamente impossível colorí-los).
+\item \textbf{Qualidade}: Como eu garanto que um determinado algoritmo encontrou a resposta correta? Faço uma verificação manual? Se sim, há casos que eu não posso realizar essa verificação (por exemplo, quando o número de vértice é muito grande e humanamente impossível colorí-los).
+  \begin{itemize}
+  \item \textit{Após um pouco de pesquisa o que eu pude notar é que o algoritmo deve ser provado correto (formalmente) para que seja possível garantir que ele acha a solução correta.}
+  \end{itemize}
 \item aparentemente há uma classe de algoritmos \lq\lq{}construtivos\rq\rq{} para o GCP. Se existe tal classe, deve haver outras classes, não?
 \end{itemize}
 
