@@ -12,6 +12,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{amssymb}
 \usepackage[pdftex]{graphicx}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
@@ -27,14 +28,38 @@ O problema de coloração de vértices pode ter, ao menos, duas versões: otimiz
 Existem basicamente 3 heurísitcas utilizadas para o GCP, que apesar de terem um desempenho razoável não garantem uma aproximação da solução/qualidade da solução:
 
 \begin{itemize}
-\item textbf{simplest}: ordena os vértices do grafo pelo seu grau e sequencialmente colore cada vértice, de acordo com a ordem pré-estabelecida, utilizando a menor cor possível.
-\item textbf{DSATUR}: Possui o mesmo \lq\lq{}espírito\rq\rq{} do algoritmo \lq\lq{}simplest\rq\rq{} porém com o diferencial na forma de ordenação dos vértices. Esta ordenação utiliza-se do \lq\lq{}grau de sdaturação\rq\rq{}, isto é, que tem o mair grau induzido pelos vértices já coloridos.
-\item textbf{RLF}: Este algoritmo possui uma estratégia distinta: colore sequencialmente os conjuntos estáveis, conforme vai construindo-os.
+\item \textbf{simplest}: ordena os vértices do grafo pelo seu grau e sequencialmente colore cada vértice, de acordo com a ordem pré-estabelecida, utilizando a menor cor possível.
+\item \textbf{DSATUR}: Possui o mesmo \lq\lq{}espírito\rq\rq{} do algoritmo \textbf{\lq\lq{}simplest\rq\rq{}} porém com o diferencial na forma de ordenação dos vértices. Esta ordenação utiliza-se do \lq\lq{}grau de saturação\rq\rq{}, isto é, que tem o maior grau induzido pelos vértices já coloridos. % Minha percepção: o fato de induzir pelos vértices já coloridos é justamente retirar os vértices já coloridos porém as demais arestas devem permanecer. Seria o mesmo que o conceito de subgrafo induzido.
+\item \textbf{RLF}: Este algoritmo possui uma estratégia distinta: colore sequencialmente os conjuntos estáveis, conforme vai construindo-os.
 \end{itemize}
 
-% TODO comentar sobre o desenpenho geral deles: O(n^3) RLF e O(n^2) os outros dois.
+% TODO comentar sobre o desempenho geral deles: O(n^3) RLF e O(n^2) os outros dois.
 
 A heurística RLF é utilizada como referência tanto na questão da qualidade da heurística como no desempenho. O artigo, portanto, estuda uma implementação mais eficiente: Lazy RLF. O artigo, também, estuda uma estrutura de dados diferente para a representação do grafo.
+
+\subsection{Recursive Largest First - RLF.}
+
+Este algoritmo possui a complexidade no pior caso de $\mathcal{O}(n^3)$. Ele é dividido em 2 partes, sendo o seu coração a procura do conjunto estável (o conjunto no qual os vértices, dois a dois, não são adjacentes).
+
+\subsubsection{Algoritmo 1.}
+
+Consiste em chamar uma função para encontrar o conjunto estável, enquanto o subgrafo induzido possuir mais de 0 vértice (ou seja, enquanto houver um subgrafo...). Este algoritmo é responsável, a cada iteração, de atualizar o contador das cores utilizadas.
+
+\subsubsection{Algoritmo 2.}
+
+Na segunda parte é onde ocorre a computação relevante. Inicialmente podemos declarar:
+
+\begin{itemize}
+\item $G[X]$ como o subgrafo induzido pelo conjunto X;
+\item $\delta (v)$ é o conjunto dos vértices adjancetes à v;
+\item $d_X(v)$ é o grau de $v$ induzido por $X$ sendo $d_X(v) = | \delta (v)|$;
+\item $P$ é o conjunto de vértices que ainda não foram coloridos;
+\item $U$ é o conjunto de vértice que não podem ser adicionados ao conjunto estável;
+\end{itemize}
+
+Tem-se inicialmente que $P = V$ e que $U = \emptyset$.
+
+\subsubsection{Complexidade.}
 
 \section{Comentários Jefferson.}
 

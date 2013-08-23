@@ -1,4 +1,5 @@
-GITHUB_FOLDER=~/Dropbox/projects/ufscar/ppgccs/github
+# GITHUB_FOLDER=~/Dropbox/projects/ufscar/ppgccs/github
+GITHUB_FOLDER=$(PWD)/../../
 PROJECT=efficiency_issues_in_the_RLF_heuristic_for_graph_coloring
 DELETE_FILES=${shell cat ${GITHUB_FOLDER}/.gitignore}
 
