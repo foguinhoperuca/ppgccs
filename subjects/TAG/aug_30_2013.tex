@@ -1,0 +1,131 @@
+%% Copyright (C)  2013 Jefferson Campos.
+%% Permission is granted to copy, distribute and/or modify this document
+%% under the terms of the GNU Free Documentation License, Version 1.3
+%% or any later version published by the Free Software Foundation;
+%% with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+%% A copy of the license is included in the section entitled "GNU
+%% Free Documentation License".
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[pdftex]{graphicx}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newtheorem{lazy}{Proposição}
+
+\begin{document}
+
+% Nesta seção serão capturadas as principais idéias do texto
+\section{Parte 2 da Aula.}
+
+% TODO colocar na forma do latex.
+
+% # Problema de Fluxo Máximo.
+
+% Pesquisar e detalhar...
+
+% # Problemas em Grafo.
+
+% Problemas de fluxo máximo e corte mínimo. Os problemas abaixo são, em essência, o mesmo.
+
+% ## Logística de Distribuição.
+
+% Resolver com o "problema" de fluxo máximo.
+
+% Institivamente aceitamos que o corte com a menor capacidade é o gargalo que leva o produto da fonte para o sorvedouro.
+
+% ## Rede de Comunicação.
+
+% Exemplo: em um cenário de guerra, derrubar um ou mais links (minimo possível) do inimigo.
+
+% Com grafos é possível utilizar o problema de corte mínimo.
+
+% ## Computação Distribuída em 2 Processadores.
+
+% Dividir o processamento em 2 processadores a fim de minimizar o custo de computação. Considerar o cuso de computação e o custo de comunição entre os processos.
+
+% ### Modelagem Proposta.
+
+% * P_1 := vértice especial representando o processador 1;
+% * P_2 := vértice especial representando o processador 2;
+% * Demais Vérteice representando os processos;
+% * As arestas representam os custos de processamento com o respectivo processador;
+% * As arestas entre os processos represnetam o custo de comunicação;
+
+% ## Exercício.
+
+% Uma variação natural: quando há diversas fontes e sorvedouros, consigo utilizar a mesma modelagem?
+% De certa forma sim: todo mundo que for fonte na rede eu ligo com um novo vértice que será a fonte do novo grafo. A mesma idéia com o sorvedouro: todo mundo que for sorvedouro eu coloco ligado à um novo vértice que será o sorvedouro do novo grafo. Ligo a nova fonte/sorvedouro com valor infinito aos respectivas fontes/sorvedouros.
+
+% ### Como eu mapearia o valor infinito?
+
+% Minha intuição diz que o valor inicial é 0 para não influenciar na conta do corte mínimo. -1 iria, certamente, influenciar no cálculo.
+
+\section{Definições.}
+
+$G = (N, A)$\\
+$N$ é o conjunto de nós;\\
+$A$ é o conjunto de arcos;
+
+$u_{i j} >= 0 \forall (i, j) \in A$.\\
+
+$s$ é a fonte\\
+$t$ é o sorvedouro\\
+
+$max(v) sujeito a \sum{x_{ij}} - \sum{x_{ji}}$
+
+$j: \{(i, j) \in A \}$
+$j: \{(j, i) \in A \}$
+
+isso tudo temos:
+
+$v se i = s;$
+$0 se i \in N - \{ s, t \}$
+$-v se i = t$
+
+$0 \leq x_{ij} \leq u_{ij} \forall (i, j) \in A.$
+
+\subsection{Rede Residual.}
+
+$r_{ij} = u_{ij} - x_{ij} + x_{ji}$
+
+Caminhos aumentantes é utilizado para identificar o caminho mínimo.
+
+A importância do caminho residual é dar a capacidade de avaliar e mudar o caminho escolhido à produca da otimização do problema.
+
+Algoritmo de busca em largura é mais eficiente no cálculo de caminhos aumentantes. Verificar...
+
+\section{Exercícios Para Próxima Aula.}
+
+É necessário o capítulo do livro (qual) para identificar a notação utilizada.
+
+Exercícios:
+
+\begin{itemize}
+\item 6.1
+\item 6.3
+\item 6.25
+\end{itemize}
+
+Exercícios que serão cobrados posteriormente:
+
+\begin{itemize}
+\item 6.12
+\item 6.15
+\end{itemize}
+
+\section{Comentários Jefferson}
+
+
+
+% \nocite{*}
+% \bibliographystyle{ieeetr}
+% \bibliography{efficiency_issues_in_the_RLF_heuristic_for_graph_coloring}
+
+\end{document}
