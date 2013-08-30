@@ -13,8 +13,11 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage[pdftex]{graphicx}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newtheorem{lazy}{Proposição}
 
 \begin{document}
 
@@ -61,17 +64,50 @@ Tem-se inicialmente que $P = V$ e que $U = \emptyset$ e o grau induzido em $U$ p
 
 \subsubsection{Complexidade.}
 
-% TODO
+A complexidade do algoritmo é de $\mathcal{O}(n^3)$, como mencionado anteriormente. A função ``findStableSet'' é executada k vezes. Entretanto, é interessante notar que cada vértice é selecionado uma única vez. O vértice é removido juntamente com suas respectivas arestas. Assim, cada aresta é removida uma única vez, o que implica em uma complexidade de $\mathcal{O}(m)$ nesta operação.
 
-\section{Comentários Jefferson.}
+O loop aninhado da linha 10-12, no pior caso, pode ter a complexidade de $\mathcal{O}(n^2)$. Considerando o grau máximo do vértice em G, a complexidade pode ser de $\mathcal{O}(\Delta^2)$. Como o loop aninhado é executado uma única vez para cada vértice já que na linha 4 um vértice só pode ser escolhido uma única vez, a complexidade é de $\mathcal{O}(n\Delta^2)$. Todas as demais operações podem ser implementadas em tempo constante, exceto as linhas 2 e 4 que possuem a complixadade de $\mathcal{O}(n)$.
 
-\begin{itemize}
-\item \textbf{Qualidade}: Como eu garanto que um determinado algoritmo encontrou a resposta correta? Faço uma verificação manual? Se sim, há casos que eu não posso realizar essa verificação (por exemplo, quando o número de vértice é muito grande e humanamente impossível colorí-los).
-  \begin{itemize}
-  \item \textit{Após um pouco de pesquisa o que eu pude notar é que o algoritmo deve ser provado correto (formalmente) para que seja possível garantir que ele acha a solução correta.}
-  \end{itemize}
-\item aparentemente há uma classe de algoritmos \lq\lq{}construtivos\rq\rq{} para o GCP. Se existe tal classe, deve haver outras classes, não?
-\end{itemize}
+Em resumo, a complexidade total pode ser determinada em $\mathcal{O}(m + n^2)$.
+
+\subsection{Lazy Recursive Largest First.}
+
+O algoritmo RLF tem como principal característica a escolha do vértice com o grau máximo induzido por $U$. Para tanto, cada vez que um vértice é selecionado, uma array é atualizada e é visitado todos os seus vizinhos. Caso seja corretamente mantido o grau induzido de cada vértice a seleção do vértice é linear em $n$.
+
+Uma alteração possível para o algoritmo, tendo isto posto, é utilizar uma estratégia diferente para selecionar o vértice. Ao invés de manter uma array de grau de vértices e modificá-la a cada seleção de vértices, pode-se computar $d_U(v)$ de forma ``preguiçosa'' utilizando a seguinte proposição:
+
+Sabendo que $d_U^{max} = max\{d_U(v) | v \in P\}$ e que $\bar{d}_U$ é o maior grau induzido por $U$ encontrado, até o momento, na chamada à função findStableSet:
+\begin{lazy}
+  Um vértice $v$ com o $d_V(v) < \bar{d}_U$ tem $\bar{d_V} < d_U^{max}$.
+\end{lazy}
+
+\begin{proof}
+  O grafo induzido pelo conjunto de vértices que ainda não foram coloridos temos que $\delta_v(v) = \delta_P \cup \delta_U(v)$ e portanto temos que $d_V(v) = d_P(v) + d_U(v)$. Assim, se $d_V(v) < \bar{d}_U$ então $d_U(v) \leq d_V(v) < \bar{d}_U \leq d_U^{max}$.
+\end{proof}
+
+Como consequência prática, temos que caso seja encontrado um vértice $\bar{d}_U$ é possível evitar a computação de  $d_U$ para todos os vértices com $d_V(v) < \bar{d}_U$. E, também, ao mudar a forma como $d_U(v)$ é computado (começando de $d_V(v)$ e decrescendo o seu valor ao invés de começar de 0 e incrementando-o), sempre que $d_U(v) < \bar{d}_U$ é computado quase que $d_V(v) - \bar{d}_U$ operações ao invés de $d_V(v)$.
+Obviamente, quanto maior for $\bar{d}_U$ maior é a economia de computação. Além do mais, caso seja iniciado o cálculo com o vértice de máximo grau em G há grandes chaces de haver um valor alto para $\bar{d}_U(v)$.
+
+% TODO Descrição dos algoritmops 3 e 4
+
+\subsubsection{Complexidade.}
+
+\subsection{Estrutura de Dados.}
+
+% TODO Descrever com mais clareza.
+
+Usa lista de adjacência pois ela é eficiente: tem a remoção de aresta e vértices em tempo constante.
+
+
+% \section{Comentários Jefferson.}
+
+% \begin{itemize}
+% \item \textbf{Qualidade}: Como eu garanto que um determinado algoritmo encontrou a resposta correta? Faço uma verificação manual? Se sim, há casos que eu não posso realizar essa verificação (por exemplo, quando o número de vértice é muito grande e humanamente impossível colorí-los).
+%   \begin{itemize}
+%   \item \textit{Após um pouco de pesquisa o que eu pude notar é que o algoritmo deve ser provado correto (formalmente) para que seja possível garantir que ele acha a solução correta.}
+%   \end{itemize}
+% \item aparentemente há uma classe de algoritmos \lq\lq{}construtivos\rq\rq{} para o GCP. Se existe tal classe, deve haver outras classes, não?
+% \end{itemize}
 
 \nocite{*}
 \bibliographystyle{ieeetr}
