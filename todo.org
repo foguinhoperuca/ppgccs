@@ -1,0 +1,4 @@
+* AUG 30 2013
+** TODO Verificar o material do Dominique de Werra
+** TODO Verificar Bibliography on Graph-Vertex Coloring
+** TODO coloração de grafos utilizando algoritmo inspirado no comportamento de formigas (ColorAnt-RT): http://seer.ufrgs.br/reic/article/view/30796
