@@ -1,4 +1,0 @@
-h1. Cap 8.
-
-* Detalhar a prova por contradição para o problema do hello, world;
-* Testar a prova nos 3 exercícios propostos;
