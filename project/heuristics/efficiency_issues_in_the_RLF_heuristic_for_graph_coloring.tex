@@ -68,7 +68,7 @@ A complexidade do algoritmo é de $\mathcal{O}(n^3)$, como mencionado anteriorme
 
 O loop aninhado da linha 10-12, no pior caso, pode ter a complexidade de $\mathcal{O}(n^2)$. Considerando o grau máximo do vértice em G, a complexidade pode ser de $\mathcal{O}(\Delta^2)$. Como o loop aninhado é executado uma única vez para cada vértice já que na linha 4 um vértice só pode ser escolhido uma única vez, a complexidade é de $\mathcal{O}(n\Delta^2)$. Todas as demais operações podem ser implementadas em tempo constante, exceto as linhas 2 e 4 que possuem a complixadade de $\mathcal{O}(n)$.
 
-Em resumo, a complexidade total pode ser determinada em $\mathcal{O}(m + n^2)$.
+Em resumo, a complexidade total pode ser determinada em $\mathcal{O}(m + n\Delta^2)$.
 
 \subsection{Lazy Recursive Largest First.}
 
@@ -88,15 +88,21 @@ Sabendo que $d_U^{max} = max\{d_U(v) | v \in P\}$ e que $\bar{d}_U$ é o maior g
 Como consequência prática, temos que caso seja encontrado um vértice $\bar{d}_U$ é possível evitar a computação de  $d_U$ para todos os vértices com $d_V(v) < \bar{d}_U$. E, também, ao mudar a forma como $d_U(v)$ é computado (começando de $d_V(v)$ e decrescendo o seu valor ao invés de começar de 0 e incrementando-o), sempre que $d_U(v) < \bar{d}_U$ é computado quase que $d_V(v) - \bar{d}_U$ operações ao invés de $d_V(v)$.
 Obviamente, quanto maior for $\bar{d}_U$ maior é a economia de computação. Além do mais, caso seja iniciado o cálculo com o vértice de máximo grau em G há grandes chaces de haver um valor alto para $\bar{d}_U(v)$.
 
-% TODO Descrição dos algoritmops 3 e 4
+% TODO Descrição dos algoritmos 3 e 4
+
+Tendo em mente a proposição 1, é proposto 2 novos algoritmos: o algoritmo 3 é uma modificação do algoritmo 2. Ele remove as linhas 2 e 10-12 e altera a linha 4 (a forma como se obtém o vértice de grau máximo induzido por $U$), introduzindo a função ``lazySelectVertex'', baseada na proposição 1. Já o algoritmo 4 é a implementação da função ``lazySelectVertex''.
 
 \subsubsection{Complexidade.}
+
+% TODO detalhar
+
+A complexidade, no pior caso, é de $\mathcal{O}(m + n^2\Delta)$.
 
 \subsection{Estrutura de Dados.}
 
 % TODO Descrever com mais clareza.
 
-Usa lista de adjacência pois ela é eficiente: tem a remoção de aresta e vértices em tempo constante.
+Usa lista de adjacência pois ela é eficiente: tem a remoção de aresta e vértices em tempo constante. a lista de adjacência possui com os vizinhos de $i$ possui 2 campos: um ponteiro para cada vizinho $j$ na lista de vértices e um ponteiro para $i$ na lista de adjacência de $j$. Para minimizar os problemas de ``perca de cache'' é utilizado uma implementação baseada em arrays da lista ligada. O problema de ``perca de cache'' é minimizado pois as arrays são alocadas de forma contígua na memória.
 
 
 % \section{Comentários Jefferson.}

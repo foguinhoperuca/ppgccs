@@ -1,6 +1,0 @@
-h1. Bibliografia Recomendada
-
-C. Cachin, R. Guerraouri, L. Rodrigues
-Introduction to Reliable and Secure Distributed System
-
-
