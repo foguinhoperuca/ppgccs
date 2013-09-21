@@ -4,7 +4,7 @@ Repository to my Master's Degree.
 
 h1. Project.
 
-Heuristics for vertix coloring.
+Heuristics for vertex coloring.
 
 h1. Links.
 
