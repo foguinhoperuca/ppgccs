@@ -4,19 +4,17 @@ Repository to my Master's Degree.
 
 h1. Project.
 
-Not defined yet!
+Heuristics for vertix coloring.
 
 h1. Links.
 
 The oficial project site is:
 
-* http://redmine.ppgccs.awknet.org - project management;
+* http://ppgccs.jeffersoncampos.eti.br - project management;
 * http://ppgccs.net - oficial site - UFSCAR;
-* http://scm.ppgccs.awknet.org - source code/docs repository;
-* http://ppgccs.awknet.org - about me and about program;
+* https://github.com/foguinhoperuca/ppgccs - project repos on github
 
-You can reach me at foguinho [dot] peruca [at] gmail [dot] com or jefferson [at] awknet [dot] org.
-
+You can reach me at jecampos [at] ufscar [dot] br.
 
 h2. Pattern for file name.
 
