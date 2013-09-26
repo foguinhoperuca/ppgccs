@@ -1,58 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
     <title>Ppgccs by foguinhoperuca</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/foguinhoperuca/ppgccs">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/foguinhoperuca/ppgccs/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/foguinhoperuca/ppgccs/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <header>
-      <div class="container">
-        <h1>Ppgccs</h1>
-        <h2>Repository to my Master's Degree.</h2>
+    <div class="wrapper">
 
-        <section id="downloads">
-          <a href="https://github.com/foguinhoperuca/ppgccs/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/foguinhoperuca/ppgccs/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/foguinhoperuca/ppgccs" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+      <section>
+        <div id="title">
+          <h1>Ppgccs</h1>
+          <p>Repository to my Master's Degree.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/foguinhoperuca">foguinhoperuca</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-    <div class="container">
-      <section id="main_content">
-        <p>h1. PPGCCS</p>
+        <h1>
+<a name="ppgccs" class="anchor" href="#ppgccs"><span class="octicon octicon-link"></span></a>PPGCCS</h1>
 
 <p>Repository to my Master's Degree.</p>
 
-<p>h1. Project.</p>
+<h1>
+<a name="project" class="anchor" href="#project"><span class="octicon octicon-link"></span></a>Project.</h1>
 
-<p>Not defined yet!</p>
+<p>Heuristics for vertex coloring.</p>
 
-<p>h1. Links.</p>
+<h1>
+<a name="links" class="anchor" href="#links"><span class="octicon octicon-link"></span></a>Links.</h1>
 
 <p>The oficial project site is:</p>
 
 <ul>
 <li>
-<a href="http://redmine.ppgccs.awknet.org">http://redmine.ppgccs.awknet.org</a> - project management;</li>
+<a href="http://ppgccs.jeffersoncampos.eti.br" title="Redmine do Projeto.">Project management - http://ppgccs.jeffersoncampos.eti.br</a>;</li>
 <li>
-<a href="http://ppgccs.net">http://ppgccs.net</a> - oficial site - UFSCAR;</li>
+<a href="http://ppgccs.net">Oficial site (UFSCAR) - http://ppgccs.net</a>;</li>
 <li>
-<a href="http://scm.ppgccs.awknet.org">http://scm.ppgccs.awknet.org</a> - source code/docs repository;</li>
-<li>
-<a href="http://ppgccs.awknet.org">http://ppgccs.awknet.org</a> - about me and about program;</li>
-</ul><p>You can reach me at foguinho [dot] peruca [at] gmail [dot] com or jefferson [at] awknet [dot] org.</p>
-      </section>
-    </div>
+<a href="https://github.com/foguinhoperuca/ppgccs">Github repository - https://github.com/foguinhoperuca/ppgccs</a>;</li>
+</ul><p>You can reach me at jecampos [at] ufscar [dot] br.</p>
 
+<h2>
+<a name="pattern-for-file-name" class="anchor" href="#pattern-for-file-name"><span class="octicon octicon-link"></span></a>Pattern for file name.</h2>
+
+<p>Some patterns used here. The main goal is make it easy to understand, find and reuse file, etc.</p>
+
+<ul>
+<li>
+<strong>A##</strong> := Lista de exercício, trabalhos, tarefas;</li>
+<li>
+<strong>_solution</strong> := resposta e soluções;</li>
+<li>
+<strong>A##_E###</strong> := Exercício (exercícios dependem de uma lista)</li>
+<li>
+<strong>Q#</strong> := provas</li>
+<li>
+<strong>_grade</strong> := notas</li>
+<li>
+<strong>&lt;AULA#&gt;_&lt;SIGLA_DISCIPLINA&gt;_TLN_&lt;ITEM_AULA#&gt;</strong> := (Teacher's Lecture Notes) notas de aula - professor</li>
+<li>
+<strong>&lt;AULA#&gt;_&lt;SIGLA_DISCIPLINA&gt;_TLNE_&lt;ITEM_AULA#&gt;_&lt;NOME_ORIGINAL&gt;</strong> := material de apoio complementar a determinada aula</li>
+<li>
+<strong>&lt;SIGLA_DISCIPLINA&gt;_RESEARCH_&lt;NOME_ORIGINAL&gt;</strong> := material de pesquisa extra</li>
+<li>
+<strong>chap##</strong> := capítulo de algum livro, etc;</li>
+<li>
+<strong>pg####</strong> := página de algum livro, etc</li>
+<li>
+<strong>S##</strong> := Seminário</li>
+<li>
+<strong>EXP##</strong> := experimento</li>
+<li>
+<strong>&lt;SIGLA_DISCIPLINA&gt;_syllabus</strong> := programa de estudo / currículo</li>
+<li>
+<strong>_calendar</strong> := calendário</li>
+<li>
+<strong>@_backup_@-##-####.zip</strong> := backup de arquivos. Exemplo: <em>ppgccs-redmine_backup_APR-01-2013</em>
+</li>
+</ul><h1>
+<a name="git-manual" class="anchor" href="#git-manual"><span class="octicon octicon-link"></span></a>Git Manual.</h1>
+
+<h2>
+<a name="docs" class="anchor" href="#docs"><span class="octicon octicon-link"></span></a>Docs.</h2>
+
+<ul>
+<li><a href="http://rogerdudler.github.io/git-guide/">A simple guide to git. Visually pleasing.</a></li>
+<li><a href="https://help.github.com/">Help of github. It is a nice doc for initial setup and use of github.</a></li>
+<li><a href="http://try.github.io/levels/1/challenges/1">Very nice doc. Recommended.</a></li>
+<li><a href="http://git-scm.com/">Oficial site.</a></li>
+</ul><h2>
+<a name="tools" class="anchor" href="#tools"><span class="octicon octicon-link"></span></a>Tools.</h2>
+
+<p>Git works very well by command line. But if you need some "visual tool", you can pick one of them:</p>
+
+<h3>
+<a name="client-mac" class="anchor" href="#client-mac"><span class="octicon octicon-link"></span></a><a href="http://mac.github.com/">Client Mac</a>
+</h3>
+
+<p>Client made by github folks. Works smooth with github, of course.</p>
+
+<h3>
+<a name="source-tree" class="anchor" href="#source-tree"><span class="octicon octicon-link"></span></a><a href="http://www.sourcetreeapp.com/">Source Tree</a>
+</h3>
+
+<p>Very nice tool. Made by bitbucket folks.</p>
+
+<h3>
+<a name="gitxl---open-source-mac-os-x-git-client" class="anchor" href="#gitxl---open-source-mac-os-x-git-client"><span class="octicon octicon-link"></span></a><a href="http://gitx.laullon.com/">GitX(L) - Open Source Mac OS X Git client</a>
+</h3>
+
+<p>Another option to mac. Open source (GPLv2).</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
