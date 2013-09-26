@@ -16,7 +16,7 @@ The oficial project site is:
 
 You can reach me at jecampos [at] ufscar [dot] br.
 
-## Pattern for file name.
+## Pattern for File's Name.
 
 Some patterns used here. The main goal is make it easy to understand, find and reuse file, etc.
 
